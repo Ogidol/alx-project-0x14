@@ -1,8 +1,6 @@
-export interface PillProps {
+export interface PostProps {
+  userId: number;
+  id: number;
   title: string;
-}
-
-export interface ButtonProps {
-  styles: string;
-  children: React.ReactNode;
+  body: string;
 }
