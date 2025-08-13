@@ -1,22 +1,43 @@
-import Header from "@/components/layout/Header";
-
+import Button from "@/components/commons/Button";
+import { useRouter } from "next/router";
 const Home: React.FC = () => {
+  const router = useRouter();
+
   return (
-    <div className="flex flex-col h-screen">
-      <Header />
-      <main className="flex-grow flex items-center justify-center bg-gradient-to-r from-blue-500 to-purple-600">
-        <div className="text-center">
-          <h1 className="text-5xl font-bold text-white">
-            Welcome to our Application!
+    <div className="bg-[#171D22] text-white">
+      <section
+        className="h-screen bg-cover bg-center"
+        style={{
+          backgroundImage:
+            'url("https://themebeyond.com/html/movflx/img/bg/breadcrumb_bg.jpg")',
+        }}
+      >
+        <div className="bg-black bg-opacity-50 h-full flex flex-col justify-center items-center text-center">
+          <h1 className="text-5xl md:text-7xl font-bold mb-8">
+            Discover Your Next Favorite{" "}
+            <span className="text-[#E2D609]">Movie</span>
           </h1>
-          <p className="mt-4 text-xl text-white">
-            We're glad you're here. Explore and enjoy your experience.
+          <p className="text-lg md:text-2xl mb-8 max-w-2xl">
+            Explore the latest blockbuster movies, critically acclaimed films,
+            and your personal favorites – all in one place.
           </p>
-          <button className="mt-6 px-6 py-3 bg-white text-blue-500 rounded-full font-semibold hover:bg-gray-200 transition">
-            Get Started
-          </button>
+          <Button
+            title="Browse Movies"
+            action={() => router.push("/movies", undefined, { shallow: false })}
+          />
         </div>
-      </main>
+      </section>
+
+      <section className="py-16 px-8 md:px-44 bg-[#121018] text-center">
+        <h2 className="text-3xl md:text-5xl font-semibold mb-8">
+          Join CineSeek Now!
+        </h2>
+        <p className="text-lg md:text-2xl mb-12">
+          Sign up today to get access to the latest movies, exclusive content,
+          and personalized movie recommendations.
+        </p>
+        <Button title="Get Started" />
+      </section>
     </div>
   );
 };

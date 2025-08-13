@@ -1,11 +1,17 @@
 import React from "react";
-const Layout: React.FC = () => {
+import { ComponentProps } from "@/interfaces";
+import Header from "./Header";
+import Footer from "./Footer";
+
+// Layout component that includes Header and Footer
+const Layout: React.FC<ComponentProps> = ({ children }) => {
+  // The Layout component wraps the main content with Header and Footer
   return (
-    <div>
-      <header>Header Component</header>
-      <main>Main Content</main>
-      <footer>Footer Component</footer>
-    </div>
+    <>
+      <Header />
+      <main className="min-h-screen">{children}</main>
+      <Footer />
+    </>
   );
 };
 
